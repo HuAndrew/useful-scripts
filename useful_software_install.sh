@@ -8,7 +8,7 @@ bundle_install(){
         sshfs \
         mc \
         cmake \
-        psensor\
+        # psensor\
         lm-sensors \
         unrar \
         uget \
@@ -38,6 +38,13 @@ chrome_install(){
     sudo apt-fast install google-chrome-stable
 }
 
+chrome_install(){
+    sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
+    wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -1
+    sudo apt update
+    sudo apt install google-chrome-stable
+}
+
 # vscode
 vscode_install(){
     # reference : https://code.visualstudio.com/docs/setup/linux
@@ -61,19 +68,20 @@ ss_install(){
     proxychains_install
     
     # reference : https://github.com/shadowsocks/shadowsocks/blob/master/README.md
-    SERVER_IP=xxxxx
-    SERVER_PORT=xxx
+    SERVER_IP=198.181.45.78
+    SERVER_PORT=6158
     LOCAL_PORT=1080
-    PASSWORD=xxxx
+    PASSWORD="e8uwgyhs;dkljdog"
+    METHOD="chacha20-ietf-poly1305"
     sudo apt-fast install python-pip
     sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
     
     # back up rc.local to rc.local.bak
     sudo mv /etc/rc.local /etc/rc.local.bak
-    
+    echo 'start!'
     # generate rc.local in conf directory
     echo "#!/bin/sh -e
-sslocal -s $SERVER_IP -p $SERVER_PORT -l $LOCAL_PORT  -k $PASSWORD --fast-open -d start
+sslocal -s $SERVER_IP -p $SERVER_PORT -l $LOCAL_PORT -m $METHOD -k $PASSWORD --fast-open -d start
 exit 0" > ./conf/rc.local
 
     sudo chown root:root ./conf/rc.local
@@ -86,6 +94,7 @@ exit 0" > ./conf/rc.local
     
     sudo systemctl restart rc.local
     sudo systemctl status rc.local
+    echo 'end'
 }
 
 typora_install(){
@@ -98,9 +107,9 @@ typora_install(){
     sudo apt-fast install typora
 }
 
-bundle_install
-aptfast_install
-vscode_install
+#bundle_install
+#aptfast_install
+#vscode_install
 chrome_install
-ss_install
-typora_install
+#ss_install
+# typora_install
