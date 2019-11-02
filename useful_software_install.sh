@@ -68,10 +68,10 @@ ss_install(){
     proxychains_install
     
     # reference : https://github.com/shadowsocks/shadowsocks/blob/master/README.md
-    SERVER_IP=198.181.45.78
-    SERVER_PORT=6158
-    LOCAL_PORT=1080
-    PASSWORD="e8uwgyhs;dkljdog"
+    SERVER_IP=xx
+    SERVER_PORT=xx
+    LOCAL_PORT=xx
+    PASSWORD="xx"
     METHOD="chacha20-ietf-poly1305"
     sudo apt-fast install python-pip
     sudo pip install git+https://github.com/shadowsocks/shadowsocks.git@master
