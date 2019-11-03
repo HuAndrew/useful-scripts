@@ -1,4 +1,4 @@
-(1) 安装搜狗输入法
+# 1. 安装搜狗输入法
 ## 参考链接
 
 https://blog.csdn.net/lupengCSDN/article/details/80279177
@@ -15,9 +15,9 @@ sudo dpkg -i sougoupinyinxxxx.deb
 sudo apt  --fix-broken install
 
 
-(2)安装QQ和微信
+# 2. 安装QQ和微信
 
-## 1.安装依赖
+## (1) 安装依赖
 
 参考链接：
 
@@ -68,3 +68,28 @@ https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/136
 （4）安装托盘
 
 https://github.com/phocean/TopIcons-plus
+
+# 3. dropbox
+
+(1) 安装教程
+
+https://websiteforstudents.com/how-to-install-setup-dropbox-on-ubuntu-18-10-18-04-16-04-desktops/
+
+(2) 方法一：下载deb文件，然后再安装
+
+(3) 方法二，使用如下命令安装
+
+```shell
+sudo apt-get update
+sudo apt-get -y install nautilus-dropbox
+```
+
+(4) 使用代理启动
+
+```shell
+proxychains dropbox start -i
+```
+
+(5) 配置
+
+proxy & path
