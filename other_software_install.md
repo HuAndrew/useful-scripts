@@ -140,3 +140,7 @@ sudo perl securefx_forgeek_crack.pl /usr/bin/SecureFX
 参考链接
 
 https://blog.csdn.net/jays_/article/details/82752847
+
+# windows 访问linux文件教程及其软件ExtFS的使用
+
+https://www.sdbeta.com/wg/2018/0523/222982.html
